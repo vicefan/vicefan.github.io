@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>주술대백과</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #0f1221;
+      --panel: #1a1f35;
+      --text: #f4f6ff;
+      --sub: #c8d0ff;
+      --accent: #8ea2ff;
+      --line: #2f3864;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Pretendard", "Noto Sans KR", "Apple SD Gothic Neo", sans-serif;
+      background: radial-gradient(circle at top, #232a4b 0%, var(--bg) 55%);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.65;
+    }
+
+    main {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 56px 20px 80px;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      letter-spacing: 0.02em;
+    }
+
+    .subtitle {
+      margin: 0 0 28px;
+      color: var(--sub);
+      font-size: 1.02rem;
+    }
+
+    .grid {
+      display: grid;
+      gap: 16px;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      margin-top: 24px;
+    }
+
+    .card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 18px 16px;
+      backdrop-filter: blur(2px);
+    }
+
+    .card h2 {
+      margin: 0 0 8px;
+      font-size: 1.05rem;
+      color: #e7ebff;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--sub);
+      font-size: 0.96rem;
+    }
+
+    footer {
+      margin-top: 34px;
+      color: #aeb8ee;
+      font-size: 0.9rem;
+      border-top: 1px solid var(--line);
+      padding-top: 14px;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 5px 10px;
+      border: 1px solid var(--accent);
+      border-radius: 999px;
+      font-size: 0.78rem;
+      color: #dfe5ff;
+      margin-bottom: 12px;
+      background: rgba(142, 162, 255, 0.12);
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <span class="badge">JUJUTSU ARCHIVE</span>
+    <h1>주술대백과</h1>
+    <p class="subtitle">인코딩 깨짐 문자 없이 깔끔하게 정리한 주술 설정 페이지입니다.</p>
+
+    <section class="grid">
+      <article class="card">
+        <h2>주력</h2>
+        <p>부정적 감정에서 비롯되는 에너지로, 주술의 핵심 동력입니다.</p>
+      </article>
+      <article class="card">
+        <h2>술식</h2>
+        <p>각 인물이 다루는 고유 능력으로, 해석과 응용에 따라 위력이 달라집니다.</p>
+      </article>
+      <article class="card">
+        <h2>영역 전개</h2>
+        <p>술식의 효과를 극대화하는 결계 기술로, 전투의 흐름을 바꾸는 비기입니다.</p>
+      </article>
+      <article class="card">
+        <h2>반전 술식</h2>
+        <p>주력을 역으로 운용해 회복 효과를 내는 고급 기술입니다.</p>
+      </article>
+    </section>
+
+    <footer>필요하면 원문 내용 기준으로 문구를 더 예쁘게 다듬어 확장해드릴게요.</footer>
+  </main>
+</body>
+</html>
