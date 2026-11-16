@@ -1,8 +1,13 @@
-import requests
-from bs4 import BeautifulSoup
+import time
 from urllib.parse import urljoin
 
+import requests
+from bs4 import BeautifulSoup
+
 from config import HEADERS, is_target_job
+
+REQUEST_TIMEOUT = 15
+MAX_REQUEST_ATTEMPTS = 3
 
 URL = (
     "https://www.saramin.co.kr/zf_user/jobs/public/list?"
@@ -14,7 +19,15 @@ URL = (
 
 
 def scrape_jobs(url: str = URL) -> list[dict[str, str]]:
-    response = requests.get(url, headers=HEADERS, timeout=15)
+    for attempt in range(MAX_REQUEST_ATTEMPTS):
+        try:
+            response = requests.get(url, headers=HEADERS, timeout=REQUEST_TIMEOUT)
+            break
+        except (requests.exceptions.ConnectionError, requests.exceptions.Timeout):
+            if attempt == MAX_REQUEST_ATTEMPTS - 1:
+                raise
+            time.sleep(2**attempt)
+
     response.raise_for_status()
     soup = BeautifulSoup(response.text, "html.parser")
 
